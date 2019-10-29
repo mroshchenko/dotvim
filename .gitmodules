@@ -1,3 +1,6 @@
 [submodule "pack/bundle/start/qt-support.vim"]
 	path = pack/bundle/start/qt-support.vim
 	url = https://github.com/fedorenchik/qt-support.vim.git
+[submodule "pack/bundle/start/nerdtree"]
+	path = pack/bundle/start/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
