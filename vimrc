@@ -118,6 +118,8 @@ nnoremap <silent> <Leader>n :set number<CR>
 
 " highlight current line
 set cursorline          
+" Set line numbering to red background:
+highlight CursorLineNR ctermbg=green
 
 " highlight matching [{()}]
 set showmatch           
@@ -266,6 +268,9 @@ endif
 
 "====================NERDTree====================
 
+" This option needs for correctly working nerdtree-git-plugin
+set shell=sh
+
 " Open a NERDTree automatically when vim starts up
 " autocmd vimenter * NERDTree
  
@@ -297,7 +302,9 @@ let NERDTreeAutoDeleteBuffer = 1
 
 " Looks nice and disable that old “Press ? for help”
 let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 0
+"let NERDTreeDirArrows = 0"works only with old version of plugin
+let NERDTreeDirArrowExpandable="+"
+let NERDTreeDirArrowCollapsible="-"
 
 " Tells the NERD tree whether to display the bookmarks table on startup.
 let NERDTreeShowBookmarks = 1

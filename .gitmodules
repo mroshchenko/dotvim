@@ -4,3 +4,6 @@
 [submodule "pack/bundle/start/nerdtree"]
 	path = pack/bundle/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule "pack/bundle/start/nerdtree-git-plugin"]
+	path = pack/bundle/start/nerdtree-git-plugin
+	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
