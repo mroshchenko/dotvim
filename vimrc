@@ -112,16 +112,17 @@ set showmode
 " Error bells are displayed visually.
 set visualbell
 
-" show line numbers
+" Show line numbers
 set number
 nnoremap <silent> <Leader>n :set number<CR>
 
-" highlight current line
+" Highlight current line
 set cursorline          
+
 " Set line numbering to red background:
 highlight CursorLineNR ctermbg=green
 
-" highlight matching [{()}]
+" Highlight matching [{()}]
 set showmatch           
 
 " If you want to make Vim wrap long lines to fit in the window,
@@ -159,17 +160,27 @@ nnoremap <silent> <Leader>b :TagbarToggle<CR>
 " To force a linear search, use this command:
 set notagbsearch
 
+"-----------------------Tags-----------------------------
+
 " It tells Vim to look for a tags file in the directory of the current file,
 " in the current directory and up and up until your $HOME
 set tags=./tags,tags,~/prj/*/tags ";$HOME
 
+" Build the global tag file, should be ran from /prjroot/
+nmap <F10> :!ctags -R<CR><CR>
+
+" Build a tag file. This can be easily done for the whole hierarchy by using shell scripts dirtags & nodestagging
+nmap <F12> :!nodestagging<CR><CR>
+
+" Is quite useful to rebuild the tag file in the directory of the current source file
+nmap ,t :!(cd %:p:h;ctags --extras=+q *.[ch]*)&<CR><CR>
+
+"-----------------------sgaT-----------------------------
+
 " To insert timestamp, press F3.
 nmap <F3> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
-imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 
-nmap <F10> :!ctags -R<CR><CR>
-nmap <F12> :!nodestagging<CR><CR>
-nmap ,t :!(cd %:p:h;ctags --extras=+q *.[ch]*)&<CR><CR>
+imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 
 " To save, press F2.
 nmap <F2> :w<CR>
@@ -259,7 +270,7 @@ nmap <leader>l :set list!<CR>
 " if you close a window by mistake and want it be recoveried
 nmap <leader>t :vs \| bp<CR>
 
-" ================ Persistent Undo ==================
+" ---------------- Persistent Undo --------------
 " Keep undo history across sessions, by storing in file.
 " Only works all the time.
 if has('persistent_undo')
@@ -273,7 +284,8 @@ endif
 "====================NERDTree====================
 
 " This option needs for correctly working nerdtree-git-plugin
-set shell=sh
+" (uncomment it only if you have problems with this plugin)
+"set shell=sh
 
 " Open a NERDTree automatically when vim starts up
 " autocmd vimenter * NERDTree
