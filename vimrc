@@ -161,11 +161,15 @@ set notagbsearch
 
 " It tells Vim to look for a tags file in the directory of the current file,
 " in the current directory and up and up until your $HOME
-set tags=./tags ";$HOME
+set tags=./tags,tags,~/prj/*/tags ";$HOME
 
 " To insert timestamp, press F3.
 nmap <F3> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
 imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+
+nmap <F10> :!ctags -R<CR><CR>
+nmap <F12> :!nodestagging<CR><CR>
+nmap ,t :!(cd %:p:h;ctags --extras=+q *.[ch]*)&<CR><CR>
 
 " To save, press F2.
 nmap <F2> :w<CR>
