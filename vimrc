@@ -153,14 +153,14 @@ set lazyredraw
 " width of a window that's not the current window.
 silent! set winminwidth=70
 
+"-----------------------Tags-----------------------------
+
 " it will pop up on the right side of the vim window
 " and show the tags picked up by ctags for the current file
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
 
 " To force a linear search, use this command:
 set notagbsearch
-
-"-----------------------Tags-----------------------------
 
 " It tells Vim to look for a tags file in the directory of the current file,
 " in the current directory and up and up until your $HOME
@@ -177,9 +177,24 @@ nmap ,t :!(cd %:p:h;ctags --extras=+q *.[ch]*)&<CR><CR>
 
 "-----------------------sgaT-----------------------------
 
+"-----------------------Term-----------------------------
+
+" Make another variant to manipulate with vim-term window
+tnoremap <C-I> <C-W>
+
+" Open vertical terminal window left from current window
+nmap tl :vert ter<CR>
+
+" Open terminal window in current window
+nmap tc :ter ++curwin<CR>
+
+" Open vertical terminal window right from current window
+nmap tr :botright vs\|:ter ++curwin<CR>
+
+"-----------------------Term-----------------------------
+
 " To insert timestamp, press F3.
 nmap <F3> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
-
 imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 
 " To save, press F2.
