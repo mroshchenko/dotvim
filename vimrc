@@ -114,12 +114,12 @@ set visualbell
 
 " Show line numbers
 set number
-nnoremap <silent> <Leader>n :set number<CR>
+nnoremap <silent> <Leader>n :set number!<CR>
 
 " Highlight current line
 set cursorline          
 
-" Set line numbering to red background:
+" Set line numbering to any_color background:
 highlight CursorLineNR ctermbg=green
 
 " Highlight matching [{()}]
@@ -180,6 +180,8 @@ nmap ,t :!(cd %:p:h;ctags --extras=+q *.[ch]*)&<CR><CR>
 "-----------------------Term-----------------------------
 
 " Make another variant to manipulate with vim-term window
+" CTRL-W N        go to Terminal-Normal mode, see Terminal-mode
+" CTRL-\ CTRL-N   go to Terminal-Normal mode, see Terminal-mode
 tnoremap <C-I> <C-W>
 
 " Open vertical terminal window left from current window
@@ -191,7 +193,7 @@ nmap tc :ter ++curwin<CR>
 " Open vertical terminal window right from current window
 nmap tr :botright vs\|:ter ++curwin<CR>
 
-"-----------------------Term-----------------------------
+"-----------------------mreT-----------------------------
 
 " To insert timestamp, press F3.
 nmap <F3> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>

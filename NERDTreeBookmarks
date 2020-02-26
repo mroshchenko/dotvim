@@ -1,4 +1,5 @@
-prj ~/prj
-builds ~/prj-bin
 .vim ~/.vim
+builds ~/prj-bin
 maximus ~/
+prj ~/prj
+
